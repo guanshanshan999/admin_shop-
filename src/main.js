@@ -5,6 +5,9 @@
 import Vue from 'vue'
 import App from './App'
 
+//移入公共样式
+import './assets/css/common.css'
+
 
 //引入 element-ui
 import ElementUI from 'element-ui';

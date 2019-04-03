@@ -26,8 +26,8 @@ export default {
   data () {
     return {
       ruleForm: {
-        username: '',
-        password: ''
+        username: 'admin',
+        password: '123456'
       },
       rules: {
         username: [
@@ -57,6 +57,9 @@ export default {
           .then(res => {
             console.log(res)
             if (res.data.meta.status === 200) {
+              // 登录成功.保存token到本地
+              localStorage.setItem('token', res.data.data.token)
+
               // 登录成功提示
               this.$message({
                 message: res.data.meta.msg,
@@ -83,16 +86,7 @@ export default {
 }
 </script>
 
-<style>
-* {
-  padding: 0;
-  margin: 0;
-}
-html,
-body,
-#app {
-  height: 100%;
-}
+<style scoped>
 /* 自己加的类*/
 .row1 {
   height: 100%;
